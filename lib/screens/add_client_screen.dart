@@ -104,6 +104,42 @@ class _AddClientScreenState extends State<AddClientScreen> {
       return;
     }
 
+    // Freemium check
+    final isPro = await DatabaseHelper.instance.getSetting('is_pro') == 'true';
+    if (!isPro) {
+      final clientCount = await DatabaseHelper.instance.getClientCount();
+      final limit = int.tryParse(await DatabaseHelper.instance.getSetting('free_client_limit') ?? '5') ?? 5;
+      if (clientCount >= limit) {
+        if (mounted) {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              backgroundColor: AppColors.cardBackground,
+              title: const Text('Лимит клиентов', style: TextStyle(color: AppColors.textPrimary)),
+              content: Text(
+                'В бесплатной версии можно добавить только $limit клиентов. Обновитесь до PRO для безлимитного доступа.',
+                style: const TextStyle(color: AppColors.textSecondary),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Отмена'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/pro');
+                  },
+                  child: const Text('PRO', style: TextStyle(color: AppColors.navActive)),
+                ),
+              ],
+            ),
+          );
+        }
+        return;
+      }
+    }
+
     final normalizedPhone = _normalizePhone(_phoneController.text);
 
     final client = Client(

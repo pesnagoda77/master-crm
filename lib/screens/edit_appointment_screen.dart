@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'appointment_materials_screen.dart';
+import 'appointment_payments_screen.dart';
 import '../database/database_helper.dart';
 import '../models/appointment.dart';
 import '../utils/constants.dart';
@@ -182,6 +184,59 @@ class _EditAppointmentScreenState extends State<EditAppointmentScreen> {
             const Text('Статус', style: AppStyles.cardTitle),
             const SizedBox(height: 12),
             _buildStatusSelector(),
+            const SizedBox(height: 16),
+            
+            // Кнопки материалы / оплаты
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => AppointmentMaterialsScreen(
+                          appointmentId: widget.appointment.id!,
+                          appointmentPrice: widget.appointment.price,
+                        ),
+                      ),
+                    ),
+                    icon: const Icon(Icons.build, size: 18),
+                    label: const Text('Материалы'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.navActive.withOpacity(0.2),
+                      foregroundColor: AppColors.navActive,
+                      elevation: 0,
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => AppointmentPaymentsScreen(
+                          appointmentId: widget.appointment.id!,
+                          totalPrice: widget.appointment.price,
+                          status: widget.appointment.status,
+                        ),
+                      ),
+                    ),
+                    icon: const Icon(Icons.currency_ruble, size: 18),
+                    label: const Text('Оплаты'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.income.withOpacity(0.2),
+                      foregroundColor: AppColors.income,
+                      elevation: 0,
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 16),
             
             // Услуга
