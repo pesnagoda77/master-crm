@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../database/database_helper.dart';
 import '../models/client.dart';
+import 'add_recurring_screen.dart';
 import '../utils/constants.dart';
 
 class RecurringScreen extends StatefulWidget {
@@ -50,6 +51,17 @@ class _RecurringScreenState extends State<RecurringScreen> {
         elevation: 0,
         title: const Text('Повторяющиеся', style: TextStyle(color: AppColors.textPrimary)),
         centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final result = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const AddRecurringScreen()),
+          );
+          if (result == true) _loadData();
+        },
+        backgroundColor: AppColors.navActive,
+        child: const Icon(Icons.add),
       ),
       body: _recurring.isEmpty
           ? Center(

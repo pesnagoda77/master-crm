@@ -9,6 +9,7 @@ import 'screens/stats_screen.dart';
 import 'screens/menu_screen.dart';
 import 'screens/pro_screen.dart';
 import 'screens/recurring_screen.dart';
+import 'screens/add_recurring_screen.dart';
 import 'services/notification_service.dart';
 import 'widgets/bottom_nav.dart';
 import 'utils/constants.dart';
@@ -123,6 +124,15 @@ class _MainScreenState extends State<MainScreen> {
                   Navigator.push(context, MaterialPageRoute(builder: (_) => const RecurringScreen()));
                 },
               ),
+              ListTile(
+                leading: const Icon(Icons.add_circle, color: AppColors.navActive),
+                title: const Text('Новая повторяющаяся', style: TextStyle(color: AppColors.textPrimary)),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const AddRecurringScreen()));
+                },
+              ),
+              const Divider(color: AppColors.surface),
               ListTile(
                 leading: const Icon(Icons.settings, color: AppColors.navActive),
                 title: const Text('Настройки', style: TextStyle(color: AppColors.textPrimary)),
