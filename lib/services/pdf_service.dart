@@ -45,7 +45,7 @@ class PdfService {
                   a.clientName,
                   a.service,
                   '${a.price.toStringAsFixed(0)} ₽',
-                  _statusText(a.status),
+                  _statusText(a.status.index),
                 ]).toList(),
               ),
               pw.SizedBox(height: 30),
@@ -54,10 +54,10 @@ class PdfService {
               pw.Table.fromTextArray(
                 headers: ['Дата', 'Категория', 'Сумма', 'Примечание'],
                 data: expenses.map((e) => [
-                  DateFormat('dd.MM').format(DateTime.parse(e.date)),
+                  DateFormat('dd.MM').format(e.date),
                   e.category,
                   '${e.amount.toStringAsFixed(0)} ₽',
-                  e.notes ?? '',
+                  e.notes ?? '—',
                 ]).toList(),
               ),
             ],
