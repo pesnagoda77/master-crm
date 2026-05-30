@@ -1,0 +1,71 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'screens/home_screen.dart';
+import 'screens/calendar_screen.dart';
+import 'screens/clients_screen.dart';
+import 'screens/finance_screen.dart';
+import 'screens/menu_screen.dart';
+import 'widgets/bottom_nav.dart';
+import 'utils/constants.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('ru', null);
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Мастер CRM',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: AppColors.background,
+        useMaterial3: true,
+      ),
+      home: const MainScreen(),
+    );
+  }
+}
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _currentIndex = 0;
+
+  // Порядок должен совпадать с bottom_nav.dart:
+  // 0 = Главная, 1 = Календарь, 2 = Клиенты, 3 = Финансы, 4 = Меню
+  late final List<Widget> _screens = [
+    HomeScreen(
+      onCalendarTap: () => setState(() => _currentIndex = 1),
+    ),                         // индекс 0
+    const CalendarScreen(),    // индекс 1
+    const ClientsScreen(),     // индекс 2
+    const FinanceScreen(),     // индекс 3
+    const MenuScreen(),        // индекс 4
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _screens[_currentIndex],
+      bottomNavigationBar: BottomNav(
+        currentIndex: _currentIndex,
+        onTap: (index) => setState(() => _currentIndex = index),
+      ),
+    );
+  }
+}
