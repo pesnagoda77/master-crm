@@ -8,12 +8,15 @@ import 'screens/finance_screen.dart';
 import 'screens/stats_screen.dart';
 import 'screens/menu_screen.dart';
 import 'screens/pro_screen.dart';
+import 'screens/recurring_screen.dart';
+import 'services/notification_service.dart';
 import 'widgets/bottom_nav.dart';
 import 'utils/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('ru', null);
+  await NotificationService().init();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -112,6 +115,14 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
               const Divider(color: AppColors.surface),
+              ListTile(
+                leading: const Icon(Icons.repeat, color: AppColors.navActive),
+                title: const Text('Повторяющиеся', style: TextStyle(color: AppColors.textPrimary)),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const RecurringScreen()));
+                },
+              ),
               ListTile(
                 leading: const Icon(Icons.settings, color: AppColors.navActive),
                 title: const Text('Настройки', style: TextStyle(color: AppColors.textPrimary)),

@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import '../database/database_helper.dart';
 import '../models/appointment.dart';
 import '../models/client.dart';
+import '../services/notification_service.dart';
 import '../utils/constants.dart';
 
 class AddAppointmentScreen extends StatefulWidget {
@@ -118,7 +119,15 @@ class _AddAppointmentScreenState extends State<AddAppointmentScreen> {
           : null,
     );
     
-    await DatabaseHelper.instance.createAppointment(appointment);
+    final id = await DatabaseHelper.instance.createAppointment(appointment);
+    
+    // Schedule notification
+    await NotificationService().scheduleAppointmentReminder(
+      id,
+      dateTime,
+      _selectedClient!.name,
+      _serviceController.text.trim(),
+    );
     
     if (mounted) {
       Navigator.pop(context, true);

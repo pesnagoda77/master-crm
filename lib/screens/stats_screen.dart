@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../database/database_helper.dart';
+import '../services/pdf_service.dart';
+import '../services/share_service.dart';
 import '../utils/constants.dart';
 
 class StatsScreen extends StatefulWidget {
@@ -107,6 +109,13 @@ class _StatsScreenState extends State<StatsScreen> {
                     _loadData();
                   },
                   icon: const Icon(Icons.chevron_right, color: AppColors.navActive),
+                ),
+                IconButton(
+                  onPressed: () async {
+                    final path = await PdfService.generateMonthlyReport(_selectedYear, _selectedMonth);
+                    await ShareService.shareFile(path, subject: 'Отчет за $monthName');
+                  },
+                  icon: const Icon(Icons.picture_as_pdf, color: AppColors.navActive),
                 ),
               ],
             ),
