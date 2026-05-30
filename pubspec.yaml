@@ -39,6 +39,15 @@ dependencies:
     # Доступ к контактам телефона
   flutter_contacts: ^1.1.9+2
 
+  # Контакты и уведомления
+  url_launcher: ^6.2.5
+  flutter_local_notifications: ^17.0.0
+  
+  # Графики и PDF
+  fl_chart: ^0.68.0
+  pdf: ^3.10.7
+  share_plus: ^9.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
