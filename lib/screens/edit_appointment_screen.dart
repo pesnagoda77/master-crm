@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+<<<<<<< HEAD
 import 'appointment_materials_screen.dart';
 import 'appointment_payments_screen.dart';
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
 import '../database/database_helper.dart';
 import '../models/appointment.dart';
 import '../utils/constants.dart';
@@ -186,6 +189,7 @@ class _EditAppointmentScreenState extends State<EditAppointmentScreen> {
             _buildStatusSelector(),
             const SizedBox(height: 16),
             
+<<<<<<< HEAD
             // Кнопки материалы / оплаты
             Row(
               children: [
@@ -239,6 +243,8 @@ class _EditAppointmentScreenState extends State<EditAppointmentScreen> {
             ),
             const SizedBox(height: 16),
             
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
             // Услуга
             _buildTextField(
               controller: _serviceController,

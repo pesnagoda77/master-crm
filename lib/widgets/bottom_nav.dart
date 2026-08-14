@@ -34,7 +34,11 @@ class BottomNav extends StatelessWidget {
               _buildNavItem(Icons.calendar_today_outlined, 'Календарь', 1),
               _buildNavItem(Icons.people_outline, 'Клиенты', 2),
               _buildNavItem(Icons.account_balance_wallet_outlined, 'Финансы', 3),
+<<<<<<< HEAD
               _buildNavItem(Icons.bar_chart_outlined, 'Статистика', 4),
+=======
+              _buildNavItem(Icons.menu, 'Меню', 4),
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
             ],
           ),
         ),

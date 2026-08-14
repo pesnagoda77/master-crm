@@ -1,11 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     
+<<<<<<< HEAD
     <!-- Разрешения для уведомлений -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
     <!-- Разрешения для камеры и хранилища -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -45,6 +48,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+<<<<<<< HEAD
         
         <!-- Flutter Local Notifications receiver -->
         <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver" />
@@ -57,6 +61,8 @@
                 <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

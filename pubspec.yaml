@@ -3,7 +3,11 @@ description: CRM для мастеров - учет времени, клиент
 
 publish_to: 'none'
 
+<<<<<<< HEAD
 version: 2.0.0+2
+=======
+version: 1.0.0+1
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -39,6 +43,7 @@ dependencies:
     # Доступ к контактам телефона
   flutter_contacts: ^1.1.9+2
 
+<<<<<<< HEAD
   # Контакты и уведомления
   url_launcher: ^6.2.5
   flutter_local_notifications: ^17.0.0
@@ -48,6 +53,8 @@ dependencies:
   pdf: ^3.10.7
   share_plus: ^9.0.0
 
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -23,9 +23,14 @@ class DatabaseHelper {
     
     return await openDatabase(
       path,
+<<<<<<< HEAD
       version: 2,
       onCreate: _createDB,
       onUpgrade: _upgradeDB,
+=======
+      version: 1,
+      onCreate: _createDB,
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
     );
   }
   
@@ -70,6 +75,7 @@ class DatabaseHelper {
         notes TEXT
       )
     ''');
+<<<<<<< HEAD
     
     await db.execute('''
       CREATE TABLE appointment_materials (
@@ -172,6 +178,8 @@ class DatabaseHelper {
       await db.insert('app_settings', {'key': 'tax_system', 'value': 'usn6'});
       await db.insert('app_settings', {'key': 'monthly_goal', 'value': '150000'});
     }
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
   }
   
   Future<int> createClient(Client client) async {
@@ -322,6 +330,7 @@ class DatabaseHelper {
     };
   }
   
+<<<<<<< HEAD
   // ========== PAYMENTS ==========
   Future<int> createPayment(int appointmentId, double amount, {String? notes}) async {
     final db = await database;
@@ -500,6 +509,8 @@ class DatabaseHelper {
     return (result.first['count'] as num?)?.toInt() ?? 0;
   }
   
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
   Future close() async {
     final db = await database;
     db.close();

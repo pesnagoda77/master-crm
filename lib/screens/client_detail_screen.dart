@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+<<<<<<< HEAD
 import 'package:url_launcher/url_launcher.dart';
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
 import 'add_appointment_screen.dart';
 import 'edit_client_screen.dart';
 import '../database/database_helper.dart';
@@ -193,6 +196,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
             style: AppStyles.cardTitle,
           ),
           const SizedBox(height: 12),
+<<<<<<< HEAD
           _buildContactRow(Icons.phone, widget.client.phone, 'Позвонить', () async {
             final uri = Uri.parse('tel:${widget.client.phone.replaceAll(RegExp(r'\D'), '')}');
             if (await canLaunchUrl(uri)) await launchUrl(uri);
@@ -208,6 +212,13 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
               final uri = Uri.parse('https://yandex.ru/maps/?text=${Uri.encodeComponent(widget.client.address!)}');
               if (await canLaunchUrl(uri)) await launchUrl(uri, mode: LaunchMode.externalApplication);
             }),
+=======
+          _buildContactRow(Icons.phone, widget.client.phone, 'Позвонить', () {}),
+          if (widget.client.telegram != null)
+            _buildContactRow(Icons.telegram, widget.client.telegram!, 'Написать', () {}),
+          if (widget.client.address != null)
+            _buildContactRow(Icons.location_on, widget.client.address!, 'Маршрут', () {}),
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
         ],
       ),
     );

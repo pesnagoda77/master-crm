@@ -3,7 +3,10 @@ import 'package:intl/intl.dart';
 import '../database/database_helper.dart';
 import '../models/appointment.dart';
 import '../models/client.dart';
+<<<<<<< HEAD
 import '../services/notification_service.dart';
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
 import '../utils/constants.dart';
 
 class AddAppointmentScreen extends StatefulWidget {
@@ -119,6 +122,7 @@ class _AddAppointmentScreenState extends State<AddAppointmentScreen> {
           : null,
     );
     
+<<<<<<< HEAD
     final id = await DatabaseHelper.instance.createAppointment(appointment);
     
     // Schedule notification
@@ -128,6 +132,9 @@ class _AddAppointmentScreenState extends State<AddAppointmentScreen> {
       _selectedClient!.name,
       _serviceController.text.trim(),
     );
+=======
+    await DatabaseHelper.instance.createAppointment(appointment);
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
     
     if (mounted) {
       Navigator.pop(context, true);

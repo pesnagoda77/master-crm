@@ -4,8 +4,11 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_windows
+<<<<<<< HEAD
   share_plus
   url_launcher_windows
+=======
+>>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
