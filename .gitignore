@@ -45,3 +45,4 @@ app.*.map.json
 *.zip
 *.rar
 *.7z
+key.properties

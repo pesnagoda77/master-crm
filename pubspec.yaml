@@ -28,7 +28,7 @@ dependencies:
   equatable: ^2.0.5
   
   # Форматирование дат и чисел
-  intl: ^0.18.1
+  intl: any
   
   # Иконки и свайпы
   cupertino_icons: ^1.0.6
