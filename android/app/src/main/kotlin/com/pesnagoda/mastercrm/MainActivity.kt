@@ -1,4 +1,4 @@
-package com.example.master_crm
+package com.pesnagoda.mastercrm
 
 import io.flutter.embedding.android.FlutterActivity
 

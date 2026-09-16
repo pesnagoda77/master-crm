@@ -5,26 +5,19 @@ import 'screens/home_screen.dart';
 import 'screens/calendar_screen.dart';
 import 'screens/clients_screen.dart';
 import 'screens/finance_screen.dart';
-<<<<<<< HEAD
 import 'screens/stats_screen.dart';
 import 'screens/menu_screen.dart';
 import 'screens/pro_screen.dart';
 import 'screens/recurring_screen.dart';
 import 'screens/add_recurring_screen.dart';
 import 'services/notification_service.dart';
-=======
-import 'screens/menu_screen.dart';
->>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
 import 'widgets/bottom_nav.dart';
 import 'utils/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('ru', null);
-<<<<<<< HEAD
   await NotificationService().init();
-=======
->>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -60,11 +53,7 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   // Порядок должен совпадать с bottom_nav.dart:
-<<<<<<< HEAD
   // 0 = Главная, 1 = Календарь, 2 = Клиенты, 3 = Финансы, 4 = Статистика
-=======
-  // 0 = Главная, 1 = Календарь, 2 = Клиенты, 3 = Финансы, 4 = Меню
->>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
   late final List<Widget> _screens = [
     HomeScreen(
       onCalendarTap: () => setState(() => _currentIndex = 1),
@@ -72,17 +61,12 @@ class _MainScreenState extends State<MainScreen> {
     const CalendarScreen(),    // индекс 1
     const ClientsScreen(),     // индекс 2
     const FinanceScreen(),     // индекс 3
-<<<<<<< HEAD
     const StatsScreen(),       // индекс 4
-=======
-    const MenuScreen(),        // индекс 4
->>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       appBar: _currentIndex == 0 ? AppBar(
         backgroundColor: AppColors.background,
         elevation: 0,
@@ -169,8 +153,6 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
-=======
->>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNav(
         currentIndex: _currentIndex,

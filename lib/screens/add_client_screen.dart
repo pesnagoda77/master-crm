@@ -104,7 +104,6 @@ class _AddClientScreenState extends State<AddClientScreen> {
       return;
     }
 
-<<<<<<< HEAD
     // Freemium check
     final isPro = await DatabaseHelper.instance.getSetting('is_pro') == 'true';
     if (!isPro) {
@@ -141,8 +140,6 @@ class _AddClientScreenState extends State<AddClientScreen> {
       }
     }
 
-=======
->>>>>>> 86ddddd (master-crm: исходники (синхронизация на GitHub))
     final normalizedPhone = _normalizePhone(_phoneController.text);
 
     final client = Client(
